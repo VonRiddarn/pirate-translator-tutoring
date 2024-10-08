@@ -5,13 +5,35 @@ const vowels = "aouåeiyäö";
 
 function translateToPirate(input) 
 {
+	let textToReturn = "";
+
 	// "Hello" = 5 in length
 	// "Hi" = 2 in length
 	// Loop through each letter
-	for(let currentLetterIndexNumber = 0; currentLetterIndexNumber < input.length; currentLetterIndexNumber++)
+	for(let i = 0; i < input.length; i++)
 	{
-		console.log(input[currentLetterIndexNumber]);
+		let currentLetter = input[i];
+
+		//textToReturn += vowels.includes(currentLetter) || currentLetter === " " ? currentLetter : `${currentLetter}o${currentLetter}`;
+
+		// && and (both must be true)
+		// || or (one must be true)
+		if (vowels.includes(currentLetter) || currentLetter === " ")
+		{
+			textToReturn += currentLetter;
+		}
+		else
+		{
+			//textToReturn += `${currentLetter}o${currentLetter}`;
+
+			// Currentletter = "J"
+			textToReturn += currentLetter; // Texttureturn : J
+			textToReturn += "o"; // Texttureturn : Jo
+			textToReturn += currentLetter; // Texttureturn : JoJ
+		}
 	}
+
+	console.log(textToReturn);
 }
 
-translateToPirate("Hej! Jag heter Tompa Tjompa!");
+translateToPirate("Hello World");
